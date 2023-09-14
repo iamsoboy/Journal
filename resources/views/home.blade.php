@@ -88,7 +88,7 @@
                     <a href="{{ route('journals.show', $journal->id) }}" class="lg:pr-16 lg:pb-8">
                         <div class="flex w-full">
                             <div class="relative flex flex-col items-start m-1 transition duration-300 ease-in-out delay-150 transform bg-white shadow-2xl rounded-xl md:w-80 md:-ml-4 md:hover:-translate-x-4 md:hover:-translate-y-4">
-                                <img class="object-cover object-center w-full rounded-t-xl lg:h-48 md:h-36" src="{{ config('app.url')."/storage/".$journal->image }}" alt="journal-image">
+                                <img class="object-cover object-center w-full rounded-t-xl h-[52px] lg:h-48 md:h-36" src="{{ config('app.url')."/storage/".$journal->image }}" alt="journal-image">
                                 <div class="px-3 py-2">
                                     <h4 class="mt-4 text-2xl font-semibold text-neutral-600">
                                         <span class="">{{ $journal->title }}</span>
