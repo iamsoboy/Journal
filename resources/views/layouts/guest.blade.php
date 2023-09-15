@@ -22,7 +22,7 @@
               integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
     <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
+        <div class="min-h-screen  pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
             @include('layouts.header')
 
             <div class="w-full mt-6 px-6 py-8 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
