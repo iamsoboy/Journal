@@ -14,7 +14,6 @@ class HomeController extends Controller
         $journals = Journal::whereStatus(true)->with(['category'])->orderByDesc('id')->take(4)->get();
         $articles = Article::whereStatus(true)->get();
 
-        //dd($journals);
         return view('home', compact('journals', 'articles'));
     }
 }
