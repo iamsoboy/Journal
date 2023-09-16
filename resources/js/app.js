@@ -3,10 +3,18 @@ import 'flowbite';
 import Swiper from "swiper";
 import { Navigation } from 'swiper/modules';
 import Alpine from 'alpinejs';
+import Focus from '@alpinejs/focus'
+import FormsAlpinePlugin from '../../vendor/filament/forms/dist/module.esm'
+import NotificationsAlpinePlugin from '../../vendor/filament/notifications/dist/module.esm'
 
 // import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
+
+
+Alpine.plugin(Focus)
+Alpine.plugin(FormsAlpinePlugin)
+Alpine.plugin(NotificationsAlpinePlugin)
 
 window.Alpine = Alpine;
 

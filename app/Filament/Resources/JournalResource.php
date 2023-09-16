@@ -19,6 +19,7 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -96,11 +97,11 @@ class JournalResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('title'),
-                TextColumn::make('slug'),
-                TextColumn::make('category_id'),
-                TextColumn::make('image'),
-                TextColumn::make('body'),
+                TextColumn::make('title')->sortable(),
+                TextColumn::make('slug')->limit(20),
+                TextColumn::make('category.name')->placeholder('Uncategorized'),
+                ImageColumn::make('image'),
+                TextColumn::make('body')->words(20),
                 TextColumn::make('issue'),
                 TextColumn::make('volume'),
                 TextColumn::make('doi'),
@@ -114,6 +115,7 @@ class JournalResource extends Resource
                 TextColumn::make('updated_at')
                     ->dateTime(),
             ])
+            ->defaultSort('title')
             ->filters([
                 //
             ])
