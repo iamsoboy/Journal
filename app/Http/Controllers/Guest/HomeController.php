@@ -13,7 +13,8 @@ class HomeController extends Controller
     {
         $journals = Journal::whereStatus(true)->with(['category'])->orderByDesc('id')->take(4)->get();
         $articles = Article::whereStatus(true)->get();
-
-        return view('home', compact('journals', 'articles'));
+        $sliders = Journal::whereStatus(true)->with(['category'])->whereFeatured(true)->orderByDesc('id')->take(3)->get();
+        //dd($sliders->last());
+        return view('home', compact('journals', 'articles', 'sliders'));
     }
 }
