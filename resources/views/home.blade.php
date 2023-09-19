@@ -1,83 +1,121 @@
 <x-guest-layout>
 
     <!-- SLIDER START-->
-    <div class="h-[360px] md:h-[520px] lg:h-[578px] relative z-10 mb-5 mx-auto max-w-[1030px]">
-        <!-- Hero Slider -->
-        <div class="swiper js-vv-hero-swiper h-full w-full overflow-visible">
-            <!-- Slider required wrapper -->
-            <div class="swiper-wrapper vv-hero-swiper-wrapper">
-                @foreach($sliders as $slider)
-                <!--  Slides #2 -->
-                <div class="swiper-slide group">
-                    <div class="relative isolate h-full w-full overflow-hidden bg-primary">
-                        <div class="container h-full">
-                            <div
-                                class="grid h-full grid-cols-12 place-content-center gap-y-10 md:gap-x-6 lg:gap-x-7.5"
-                            >
+    <div class="h-[360px] md:h-[520px] lg:h-[578px] relative mb-5 z-10 mx-auto max-w-[1030px]">
 
-                                <!-- Content -->
-                                <div
-                                    class="col-span-full md:col-span-8 md:col-start-3 lg:col-span-10 lg:col-start-2"
-                                >
-                                    <div class="px-6 text-center lg:px-0">
-
-                                        <!-- Meta -->
-                                        <div
-                                            class="mb-2 flex flex-wrap justify-center gap-1 text-sm text-white lg:mb-6 lg:pt-2 lg:text-base lg:text-white"
-                                        >
-                                            <div>{!! \Illuminate\Support\Str::words($slider->body, 10, '...') !!}</div>
-                                        </div>
-                                        <!-- Meta / End -->
-
-                                        <!-- Title -->
-                                        <h2
-                                            class="mb-4 text-2xl font-bold leading-none tracking-tighter text-white sm:text-2.5xl md:mb-6 md:text-3xl md:leading-none lg:mb-12 lg:text-5.5xl lg:leading-none"
-                                        >
-                                            {{ $slider->title }}
-                                        </h2>
-                                        <!-- Title / End -->
-                                    </div>
-                                </div>
-                                <!-- Content / End -->
-
-                            </div>
-                        </div>
-
-                        <!-- Background Image Layer -->
-                        <div class="absolute inset-0 -z-10 bg-[url({{ config('app.url').'/storage'.$slider->image }}] bg-cover bg-center bg-no-repeat"></div>
-                        <!-- Background Image Layer / End -->
-
-                        <!--  Layer -->
-                        <div class="absolute inset-0 -z-10 bg-gray-900/40"></div>
-                        <!--  Layer / End -->
-                    </div>
+        <div id="gallery" class="relative w-full" data-carousel="slide">
+            <!-- Carousel wrapper -->
+            <div class="relative h-56 rounded-lg md:h-96">
+                <!-- Item 1 -->
+                <div class="hidden duration-700 ease-in-out h-[360px] md:h-[520px] lg:h-[578px]" data-carousel-item>
+                    <img src="{{ config('app.url').'/storage/'.$sliders['0']['image'] }}" class="absolute block max-w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
                 </div>
-                <!--  Slides #2 / End -->
-                @endforeach
+                <!-- Item 2 -->
+                <div class="hidden duration-700 ease-in-out h-[360px] md:h-[520px] lg:h-[578px]" data-carousel-item="active">
+                    <img src="{{ config('app.url').'/storage/'.$sliders['1']['image'] }}" class="absolute block max-w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+                </div>
+                <!-- Item 3 -->
+                <div class="hidden duration-700 ease-in-out h-[360px] md:h-[520px] lg:h-[578px]" data-carousel-item>
+                    <img src="{{ config('app.url').'/storage/'.$sliders['2']['image'] }}" class="absolute block max-w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+                </div>
             </div>
 
-
-            <!-- Navigation Start-->
-            <div
-                class="js-vv-hero-swiper-btn-prev absolute top-1/2 left-3 z-10 hidden aspect-square w-8 items-center justify-center rounded-xl bg-white text-primary shadow-[0_10px_40px_0_rgba(0,0,0,0.2)] transition-colors hover:cursor-pointer hover:bg-accent hover:text-white dark:bg-gray-800 dark:text-white dark:hover:bg-accent dark:hover:text-white sm:flex xl:left-0 -translate-y-1/2 xl:-translate-x-1/2"
-            >
-                <svg class="h-2 w-2" fill="currentColor">
-                    <use
-                        xlink:href="{{ config('app.url').'/image/sprite.svg#chevron-left' }}"
-                    ></use>
-                </svg>
-            </div>
-            <div
-                class="js-vv-hero-swiper-btn-next absolute top-1/2 right-3 z-10 hidden aspect-square w-8 items-center justify-center rounded-xl bg-white text-primary shadow-[0_10px_40px_0_rgba(0,0,0,0.2)] transition-colors hover:cursor-pointer hover:bg-accent hover:text-white dark:bg-gray-800 dark:text-white dark:hover:bg-accent dark:hover:text-white sm:flex xl:right-0 -translate-y-1/2 xl:translate-x-1/2"
-            >
-                <svg class="h-2 w-2" fill="currentColor">
-                    <use
-                        xlink:href="{{ config('app.url').'/image/sprite.svg#chevron-right'}}"
-                    ></use>
-                </svg>
-            </div>
-            <!-- Navigation End -->
+            <!-- Slider controls -->
+            <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                    </svg>
+                    <span class="sr-only">Previous</span>
+                </span>
+            </button>
+            <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                    </svg>
+                    <span class="sr-only">Next</span>
+                </span>
+            </button>
         </div>
+
+        <!-- Hero Slider -->
+{{--        <div class="swiper js-vv-hero-swiper h-full w-full overflow-visible">--}}
+{{--            <!-- Slider required wrapper -->--}}
+{{--            <div class="swiper-wrapper vv-hero-swiper-wrapper">--}}
+{{--                @foreach($sliders as $slider)--}}
+{{--                <!--  Slides #2 -->--}}
+{{--                <div class="swiper-slide group">--}}
+{{--                    <div class="relative isolate h-full w-full overflow-hidden">--}}
+{{--                        <div class="container h-full">--}}
+{{--                            <div--}}
+{{--                                class="grid h-full grid-cols-12 place-content-center gap-y-10 md:gap-x-6 lg:gap-x-7.5"--}}
+{{--                            >--}}
+
+{{--                                <!-- Content -->--}}
+{{--                                <div--}}
+{{--                                    class="col-span-full md:col-span-8 md:col-start-3 lg:col-span-10 lg:col-start-2"--}}
+{{--                                >--}}
+{{--                                    <div class="px-6 text-center lg:px-0">--}}
+
+{{--                                        <!-- Meta -->--}}
+{{--                                        <div--}}
+{{--                                            class="mb-2 flex flex-wrap justify-center gap-1 text-sm text-white lg:mb-6 lg:pt-2 lg:text-base lg:text-white"--}}
+{{--                                        >--}}
+{{--                                            <div>{!! \Illuminate\Support\Str::words($slider->body, 10, '...') !!}</div>--}}
+{{--                                        </div>--}}
+{{--                                        <!-- Meta / End -->--}}
+
+{{--                                        <!-- Title -->--}}
+{{--                                        <h2--}}
+{{--                                            class="mb-4 text-2xl font-bold leading-none tracking-tighter text-white sm:text-2.5xl md:mb-6 md:text-3xl md:leading-none lg:mb-12 lg:text-5.5xl lg:leading-none"--}}
+{{--                                        >--}}
+{{--                                            {{ $slider->title }}--}}
+{{--                                        </h2>--}}
+{{--                                        <!-- Title / End -->--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <!-- Content / End -->--}}
+
+{{--                            </div>--}}
+{{--                        </div>--}}
+
+{{--                        <!-- Background Image Layer -->--}}
+{{--                        <img src="storage/{{$slider->image}}" alt="">--}}
+{{--                            <div class="absolute inset-0 -z-10 bg-[url('storage/{{$image }})] bg-cover bg-center bg-no-repeat"></div>--}}
+{{--                        <!-- Background Image Layer / End -->--}}
+
+{{--                        <!--  Layer -->--}}
+{{--                        <div class="absolute inset-0 -z-10 bg-gray-900/40"></div>--}}
+{{--                        <!--  Layer / End -->--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <!--  Slides #2 / End -->--}}
+{{--                @endforeach--}}
+{{--            </div>--}}
+
+
+{{--            <!-- Navigation Start-->--}}
+{{--            <div--}}
+{{--                class="js-vv-hero-swiper-btn-prev absolute top-1/2 left-3 z-10 hidden aspect-square w-8 items-center justify-center rounded-xl bg-white text-primary shadow-[0_10px_40px_0_rgba(0,0,0,0.2)] transition-colors hover:cursor-pointer hover:bg-accent hover:text-white dark:bg-gray-800 dark:text-white dark:hover:bg-accent dark:hover:text-white sm:flex xl:left-0 -translate-y-1/2 xl:-translate-x-1/2"--}}
+{{--            >--}}
+{{--                <svg class="h-2 w-2" fill="currentColor">--}}
+{{--                    <use--}}
+{{--                        xlink:href="{{ config('app.url').'/image/sprite.svg#chevron-left' }}"--}}
+{{--                    ></use>--}}
+{{--                </svg>--}}
+{{--            </div>--}}
+{{--            <div--}}
+{{--                class="js-vv-hero-swiper-btn-next absolute top-1/2 right-3 z-10 hidden aspect-square w-8 items-center justify-center rounded-xl bg-white text-primary shadow-[0_10px_40px_0_rgba(0,0,0,0.2)] transition-colors hover:cursor-pointer hover:bg-accent hover:text-white dark:bg-gray-800 dark:text-white dark:hover:bg-accent dark:hover:text-white sm:flex xl:right-0 -translate-y-1/2 xl:translate-x-1/2"--}}
+{{--            >--}}
+{{--                <svg class="h-2 w-2" fill="currentColor">--}}
+{{--                    <use--}}
+{{--                        xlink:href="{{ config('app.url').'/image/sprite.svg#chevron-right'}}"--}}
+{{--                    ></use>--}}
+{{--                </svg>--}}
+{{--            </div>--}}
+{{--            <!-- Navigation End -->--}}
+{{--        </div>--}}
         <!-- Hero Slider End -->
     </div>
 
