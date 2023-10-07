@@ -1,123 +1,53 @@
 <x-guest-layout>
 
-    <!-- SLIDER START-->
-    <div class="h-[360px] md:h-[520px] lg:h-[578px] relative mb-5 z-10 mx-auto max-w-[1030px]">
-
-        <div id="gallery" class="relative w-full" data-carousel="slide">
-            <!-- Carousel wrapper -->
-            <div class="relative h-56 rounded-lg md:h-96">
+    <section>
+        <!-- SLIDER START-->
+        <div class="h-[639px] relative mb-5 z-10 mx-auto max-w-[1030px]">
+            <!-- Hero Slider -->
+            <div id="default-carousel" class="relative w-full" data-carousel="slide">
+                <!-- Carousel wrapper -->
+                <div class="relative overflow-hidden rounded-lg h-[639px]">
+                @forelse($sliders as $key => $slider)
+                    <!-- Item {{$slider->id }} -->
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                            <img src="{{ config('app.url').'/storage/'.$slider->image }}" class="absolute block h-[639px] w-[540px] -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="{{ $slider->title }}">
+                        </div>
+                @empty
                 <!-- Item 1 -->
-                <div class="hidden duration-700 ease-in-out h-[360px] md:h-[520px] lg:h-[578px]" data-carousel-item>
-                    <img src="{{ config('app.url').'/storage/'.$sliders['0']['image'] }}" class="absolute block max-w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="https://dummyimage.com/720x400" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                @endforelse
                 </div>
-                <!-- Item 2 -->
-                <div class="hidden duration-700 ease-in-out h-[360px] md:h-[520px] lg:h-[578px]" data-carousel-item="active">
-                    <img src="{{ config('app.url').'/storage/'.$sliders['1']['image'] }}" class="absolute block max-w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+                <!-- Slider indicators -->
+                <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
                 </div>
-                <!-- Item 3 -->
-                <div class="hidden duration-700 ease-in-out h-[360px] md:h-[520px] lg:h-[578px]" data-carousel-item>
-                    <img src="{{ config('app.url').'/storage/'.$sliders['2']['image'] }}" class="absolute block max-w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
-                </div>
+                <!-- Slider controls -->
+                <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-700/30 dark:bg-gray-800/30 group-hover:bg-blue-700/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                        </svg>
+                        <span class="sr-only">Previous</span>
+                    </span>
+                </button>
+                <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-700/30 dark:bg-gray-800/30 group-hover:bg-blue-700/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                        </svg>
+                        <span class="sr-only">Next</span>
+                    </span>
+                </button>
             </div>
-
-            <!-- Slider controls -->
-            <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-                    </svg>
-                    <span class="sr-only">Previous</span>
-                </span>
-            </button>
-            <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                    </svg>
-                    <span class="sr-only">Next</span>
-                </span>
-            </button>
         </div>
+    </section>
 
-        <!-- Hero Slider -->
-{{--        <div class="swiper js-vv-hero-swiper h-full w-full overflow-visible">--}}
-{{--            <!-- Slider required wrapper -->--}}
-{{--            <div class="swiper-wrapper vv-hero-swiper-wrapper">--}}
-{{--                @foreach($sliders as $slider)--}}
-{{--                <!--  Slides #2 -->--}}
-{{--                <div class="swiper-slide group">--}}
-{{--                    <div class="relative isolate h-full w-full overflow-hidden">--}}
-{{--                        <div class="container h-full">--}}
-{{--                            <div--}}
-{{--                                class="grid h-full grid-cols-12 place-content-center gap-y-10 md:gap-x-6 lg:gap-x-7.5"--}}
-{{--                            >--}}
-
-{{--                                <!-- Content -->--}}
-{{--                                <div--}}
-{{--                                    class="col-span-full md:col-span-8 md:col-start-3 lg:col-span-10 lg:col-start-2"--}}
-{{--                                >--}}
-{{--                                    <div class="px-6 text-center lg:px-0">--}}
-
-{{--                                        <!-- Meta -->--}}
-{{--                                        <div--}}
-{{--                                            class="mb-2 flex flex-wrap justify-center gap-1 text-sm text-white lg:mb-6 lg:pt-2 lg:text-base lg:text-white"--}}
-{{--                                        >--}}
-{{--                                            <div>{!! \Illuminate\Support\Str::words($slider->body, 10, '...') !!}</div>--}}
-{{--                                        </div>--}}
-{{--                                        <!-- Meta / End -->--}}
-
-{{--                                        <!-- Title -->--}}
-{{--                                        <h2--}}
-{{--                                            class="mb-4 text-2xl font-bold leading-none tracking-tighter text-white sm:text-2.5xl md:mb-6 md:text-3xl md:leading-none lg:mb-12 lg:text-5.5xl lg:leading-none"--}}
-{{--                                        >--}}
-{{--                                            {{ $slider->title }}--}}
-{{--                                        </h2>--}}
-{{--                                        <!-- Title / End -->--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <!-- Content / End -->--}}
-
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-{{--                        <!-- Background Image Layer -->--}}
-{{--                        <img src="storage/{{$slider->image}}" alt="">--}}
-{{--                            <div class="absolute inset-0 -z-10 bg-[url('storage/{{$image }})] bg-cover bg-center bg-no-repeat"></div>--}}
-{{--                        <!-- Background Image Layer / End -->--}}
-
-{{--                        <!--  Layer -->--}}
-{{--                        <div class="absolute inset-0 -z-10 bg-gray-900/40"></div>--}}
-{{--                        <!--  Layer / End -->--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <!--  Slides #2 / End -->--}}
-{{--                @endforeach--}}
-{{--            </div>--}}
-
-
-{{--            <!-- Navigation Start-->--}}
-{{--            <div--}}
-{{--                class="js-vv-hero-swiper-btn-prev absolute top-1/2 left-3 z-10 hidden aspect-square w-8 items-center justify-center rounded-xl bg-white text-primary shadow-[0_10px_40px_0_rgba(0,0,0,0.2)] transition-colors hover:cursor-pointer hover:bg-accent hover:text-white dark:bg-gray-800 dark:text-white dark:hover:bg-accent dark:hover:text-white sm:flex xl:left-0 -translate-y-1/2 xl:-translate-x-1/2"--}}
-{{--            >--}}
-{{--                <svg class="h-2 w-2" fill="currentColor">--}}
-{{--                    <use--}}
-{{--                        xlink:href="{{ config('app.url').'/image/sprite.svg#chevron-left' }}"--}}
-{{--                    ></use>--}}
-{{--                </svg>--}}
-{{--            </div>--}}
-{{--            <div--}}
-{{--                class="js-vv-hero-swiper-btn-next absolute top-1/2 right-3 z-10 hidden aspect-square w-8 items-center justify-center rounded-xl bg-white text-primary shadow-[0_10px_40px_0_rgba(0,0,0,0.2)] transition-colors hover:cursor-pointer hover:bg-accent hover:text-white dark:bg-gray-800 dark:text-white dark:hover:bg-accent dark:hover:text-white sm:flex xl:right-0 -translate-y-1/2 xl:translate-x-1/2"--}}
-{{--            >--}}
-{{--                <svg class="h-2 w-2" fill="currentColor">--}}
-{{--                    <use--}}
-{{--                        xlink:href="{{ config('app.url').'/image/sprite.svg#chevron-right'}}"--}}
-{{--                    ></use>--}}
-{{--                </svg>--}}
-{{--            </div>--}}
-{{--            <!-- Navigation End -->--}}
-{{--        </div>--}}
-        <!-- Hero Slider End -->
-    </div>
 
     <!-- MAIN BODY START-->
     <div class="flex flex-col bg-[#ECEFF2] dark:bg-gray-900">
@@ -255,120 +185,55 @@
     </div><!--end Main-->
 
 
-    <section class="">
-        <section class="text-gray-600 body-font">
-            <div class="container px-5 py-8 mx-auto">
-                <div class="flex flex-wrap w-full lg:mb-20 sm:mb-10">
-                    <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
-                        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Latest Published Articles</h1>
-                        <div class="h-1 w-20 bg-indigo-500 rounded"></div>
-                    </div>
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-6 mx-auto">
+            <div class="flex flex-wrap w-full lg:mb-8 sm:mb-4">
+                <div class="lg:w-1/2 w-full lg:mb-0">
+                    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Latest Published Articles</h1>
+                    <div class="h-1 w-20 bg-indigo-500 rounded"></div>
+                </div>
 {{--                    <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.</p>--}}
-                </div>
-                <div class="flex flex-wrap -m-4">
-                    @forelse($articles as $key => $article)
-                        <div class="xl:w-1/4 md:w-1/2 p-4">
-                            <div class="bg-gray-100 p-6 rounded-lg">
-                                <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{ $article->getImagePath() }}" alt="content">
-                                <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">{{ $article->authors }}</h3>
-                                <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{{ $article->title }}</h2>
-                                <p class="leading-relaxed text-base">
-                                    {!! \Illuminate\Support\Str::words($article->abstract, 10, '...') !!}
-                                </p>
-                            </div>
-                        </div>
+            </div>
+
+        <div x-data="{ tab: '{{$journalTitles->first()->id}}' }">
+            <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+                <ul class="flex flex-wrap -mb-px text-base font-bold text-center" role="tablist">
+                    @forelse($journalTitles as $key => $journal)
+                        <li :class="{ 'bg-blue-700 text-white': tab === '{{$journal->id}}' }" class="mr-2" role="presentation">
+                            <button @click.prevent="tab = '{{$journal->id}}'" class="inline-block p-4 border-b-2 rounded-t-lg" type="button" role="tab">
+                                {{\Illuminate\Support\Str::of($journal->title)->match("/\(([^\)]*)\)/")}}
+                            </button>
+                        </li>
                     @empty
-                        <div class="xl:w-1/4 md:w-1/2 p-4">
-                        <div class="bg-gray-100 p-6 rounded-lg">
-                            <img class="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/721x401" alt="content">
-                            <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">Author</h3>
-                            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Journal Article</h2>
-                            <p class="leading-relaxed text-base">Article Description</p>
+                        <li class="mr-2" role="presentation">
+                            <button class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">Dashboard</button>
+                        </li>
+                    @endforelse
+                </ul>
+            </div>
+
+            <div id="myTabContent">
+                @forelse($articles as $article)
+                    <div class="block rounded-lg p-2 mb-2 bg-gray-100 dark:bg-gray-800" role="tabpanel" x-show="tab === '{{$article->journal_id}}'">
+                        <div class="flex justify-between">
+                            <a href="{{ config('app.url').'/storage/'.$article->attachment }}" target="_blank">
+                                <strong class="font-bold text-base text-gray-800 dark:text-white">{{ $article->title }}</strong>
+                            </a>
+                        </div>
+                        <div class="text-sm text-gray-900">
+                            {!! \Illuminate\Support\Str::words($article->abstract, 40, '...') !!} <br>
+                            <span class="text-sm text-primary-600">{{ $article->authors }}</span>
                         </div>
                     </div>
-                    @endforelse
-                </div>
-                <div class="pt-16 max-w-[160px]">
-                    <a class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Load more</a>
-                </div>
+                @empty
+                    <div class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="dashboard" role="tabpanel">
+                        <p class="text-sm text-gray-500 dark:text-gray-400">There are currently <strong class="font-medium text-gray-800 dark:text-white">NO PUBLISHED ARTICLES</strong>. Kindly check back later.</p>
+                    </div>
+                @endforelse
             </div>
-        </section>
+        </div>
 
-{{--        <div class="relative mx-auto max-w-7xl">--}}
-{{--            <div class="grid max-w-lg gap-12 mx-auto mt-12 lg:grid-cols-3 lg:max-w-none">--}}
-{{--                <div class="flex flex-col mb-12 overflow-hidden cursor-pointer">--}}
-{{--                    <a href="/blog-post">--}}
-{{--                        <div class="flex-shrink-0">--}}
-{{--                            <img class="object-cover w-full h-48 rounded-lg" src="/assets/images/placeholders/neon-1.jpg" alt="">--}}
-{{--                        </div>--}}
-{{--                    </a>--}}
-{{--                    <div class="flex flex-col justify-between flex-1">--}}
-{{--                        <a href="/blog-post"></a>--}}
-{{--                        <div class="flex-1">--}}
-{{--                            <a href="/blog-post">--}}
-{{--                                <div class="flex pt-6 space-x-1 text-sm text-gray-500">--}}
-{{--                                    <time datetime="2020-03-10"> Mar 10, 2020 </time>--}}
-{{--                                    <span aria-hidden="true"> · </span>--}}
-{{--                                    <span> 4 min read </span>--}}
-{{--                                </div>--}}
-{{--                            </a>--}}
-{{--                            <a href="#" class="block mt-2 space-y-6">--}}
-{{--                                <h3 class="text-2xl font-semibold leading-none tracking-tighter text-neutral-600">Typography on app.</h3>--}}
-{{--                                <p class="text-lg font-normal text-gray-500">Filling text so you can see how it looks like with text. Did I said text?</p>--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-{{--                <div class="flex flex-col mb-12 overflow-hidden cursor-pointer">--}}
-{{--                    <a href="/blog-post">--}}
-{{--                        <div class="flex-shrink-0">--}}
-{{--                            <img class="object-cover w-full h-48 rounded-lg" src="/assets/images/placeholders/neon-2.jpg" alt="">--}}
-{{--                        </div>--}}
-{{--                    </a>--}}
-{{--                    <div class="flex flex-col justify-between flex-1">--}}
-{{--                        <a href="/blog-post"></a>--}}
-{{--                        <div class="flex-1">--}}
-{{--                            <a href="/blog-post">--}}
-{{--                                <div class="flex pt-6 space-x-1 text-sm text-gray-500">--}}
-{{--                                    <time datetime="2020-03-10"> Mar 10, 2020 </time>--}}
-{{--                                    <span aria-hidden="true"> · </span>--}}
-{{--                                    <span> 4 min read </span>--}}
-{{--                                </div>--}}
-{{--                            </a>--}}
-{{--                            <a href="#" class="block mt-2 space-y-6">--}}
-{{--                                <h3 class="text-2xl font-semibold leading-none tracking-tighter text-neutral-600">Typography on app.</h3>--}}
-{{--                                <p class="text-lg font-normal text-gray-500">Filling text so you can see how it looks like with text. Did I said text?</p>--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-{{--                <div class="flex flex-col mb-12 overflow-hidden cursor-pointer">--}}
-{{--                    <a href="/blog-post">--}}
-{{--                        <div class="flex-shrink-0">--}}
-{{--                            <img class="object-cover w-full h-48 rounded-lg" src="/assets/images/placeholders/neon-3.jpg" alt="">--}}
-{{--                        </div>--}}
-{{--                    </a>--}}
-{{--                    <div class="flex flex-col justify-between flex-1">--}}
-{{--                        <a href="/blog-post"></a>--}}
-{{--                        <div class="flex-1">--}}
-{{--                            <a href="/blog-post">--}}
-{{--                                <div class="flex pt-6 space-x-1 text-sm text-gray-500">--}}
-{{--                                    <time datetime="2020-03-10"> Mar 10, 2020 </time>--}}
-{{--                                    <span aria-hidden="true"> · </span>--}}
-{{--                                    <span> 4 min read </span>--}}
-{{--                                </div>--}}
-{{--                            </a>--}}
-{{--                            <a href="#" class="block mt-2 space-y-6">--}}
-{{--                                <h3 class="text-2xl font-semibold leading-none tracking-tighter text-neutral-600">Typography on app.</h3>--}}
-{{--                                <p class="text-lg font-normal text-gray-500">Filling text so you can see how it looks like with text. Did I said text?</p>--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
+        </div>
     </section>
 
 </x-guest-layout>

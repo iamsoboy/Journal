@@ -7,14 +7,14 @@
             <div class="flex flex-wrap -m-4 pb-8">
                 @forelse($journals as $key => $journal)
                 <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-                    <a href="{{ route('journals.show', $journal->id) }}" class="block relative h-48 rounded overflow-hidden">
+                    <a href="{{ route('journals.show', $journal->id) }}" class="block relative h-auto rounded overflow-hidden">
                         <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{ config('app.url')."/storage/".$journal->image }}">
                     </a>
                     <div class="mt-4">
                         <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1 uppercase">{{ $journal->category->name ?? 'Uncategorized' }}</h3>
-                        <h2 class="text-gray-900 title-font text-lg font-medium">{{ $journal->title }}</h2>
+                        <h2 class="text-gray-900 title-font text-lg xs:text-xs font-medium">{{ $journal->title }}</h2>
                         @if($journal->cost)
-                            <p class="mt-1">$ {{ number_format($journal->cost) }}</p>
+                            <p class="mt-1">{{ $journal->cost }}</p>
                         @endif
                     </div>
                 </div>

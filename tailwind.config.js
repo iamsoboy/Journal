@@ -15,6 +15,10 @@ module.exports = {
             center: true,
             padding: '20px'
         },
+        screens: {
+            'xs': {'max': '450px'},
+            ...defaultTheme.screens,
+        },
         extend: {
             colors: {
                 danger: colors.rose,

@@ -12,13 +12,12 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $journals = Journal::whereStatus(true)->with(['category'])->orderByDesc('id')->take(4)->get();
+        $journals = Journal::whereStatus(true)->with(['category', 'articles'])->orderByDesc('id')->take(4)->get();
+        $journalTitles = Journal::whereStatus(true)->with('articles')->orderByDesc('id')->get();
         $articles = Article::whereStatus(true)->get();
-        $sliders = Journal::whereStatus(true)->with(['category'])->whereSlider(false)->orderByDesc('id')->take(3)
-            ->get()->toArray();
+        $sliders = Journal::whereStatus(true)->with(['category'])->whereSlider(false)->orderByDesc('id')->take(5)
+            ->get();
 
-        //dd($sliders['0']);
-
-        return view('home', compact('journals', 'articles', 'sliders'));
+        return view('home', compact('journals', 'journalTitles', 'articles', 'sliders'));
     }
 }

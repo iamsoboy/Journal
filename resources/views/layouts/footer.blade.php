@@ -1,9 +1,7 @@
 <footer class="text-gray-600 body-font">
     <div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
         <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-            <img alt="logo" class="flex-shrink-0 object-cover object-center w-20 h-20 mx-auto rounded-full p-2" src="{{ config('app.url')."/image/logo2.png" }}">
-
-            <span class="ml-3 text-xl">{{ config('app.name') }}</span>
+            <img alt="logo" class="flex-shrink-0 object-cover object-center w-40 h-15 mx-auto rounded-sm p-2" src="{{ config('app.url')."/image/logo2.png" }}">
         </a>
         <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">&copy; <script>document.write(new Date().getFullYear());</script> {{ config('app.name') }} —
             <a href="{{ route('welcome') }}" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@iigd</a>
