@@ -23,7 +23,7 @@ class ContactUsController extends Controller
             'email' => 'required|email',
             'phone' => 'required|string',
             'message' => 'required',
-            'g-recaptcha-response' => 'required|captcha'
+            'g-recaptcha-response' => 'required|recaptcha'
         ]);
 
         //Send Email
