@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Guest\AboutUsController;
+use App\Http\Controllers\Guest\ArchiveController;
 use App\Http\Controllers\Guest\ArticleController;
 use App\Http\Controllers\Guest\ContactUsController;
 use App\Http\Controllers\Guest\FaqController;
@@ -39,6 +40,8 @@ Route::get('/journals', [JournalController::class, 'index'])->name('journals');
 Route::get('/journals/{journal}', [JournalController::class, 'show'])->name('journals.show');
 Route::get('/article/{article}', [ArticleController::class, 'show'])->name('article.show');
 Route::get('/manuscript-payment', [PaymentController::class, 'index'])->name('payment');
+Route::get('/archive/{journal}', [ArchiveController::class, 'archive'])->name('archive');
+Route::get('/current-issue/{journal}', [ArchiveController::class, 'current'])->name('current-issue');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

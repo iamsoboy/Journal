@@ -4,7 +4,7 @@
 
     <div class="bg-gray-50">
         <div class="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto divide-y-2 divide-gray-200">
+            <div class="max-w-3xl mx-auto divide-y-2 divide-gray-200 text-justify">
                 <h2 class="text-center text-3xl font-extrabold text-gray-900 sm:text-4xl">
                     {{ $pageTitle }}
                 </h2>
@@ -25,7 +25,7 @@ Heroicon name: outline/chevron-down" x-state:on="Open" x-state:off="Closed" :cla
                   </span>
                                 </button>
                             </dt>
-                            <dd class="mt-2 pr-12" id="faq-1" x-show="open">
+                            <dd class="mt-2 pr-12 text-justify" id="faq-1" x-show="open">
                                 <p class="text-base text-gray-500">
                                     {!! $faq->body !!}
                                 </p>

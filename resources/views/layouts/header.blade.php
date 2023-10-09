@@ -1,4 +1,4 @@
-<nav class="w-full bg-cover bg-no-repeat bg-gradient-to-r from-violet-500 to-orange-500 border-gray-200 dark:bg-gray-900"
+<nav class="w-full bg-gray-50 to-orange-500 border-gray-200 dark:bg-gray-900"
 
 >
     <div class="flex flex-col flex-wrap items-center justify-between mx-auto">

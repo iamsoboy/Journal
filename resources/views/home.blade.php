@@ -136,13 +136,14 @@
                         </div>
                     </div><!--end col-->
                     <div class="col-span-12 sm:col-span-12  md:col-span-12 lg:col-span-4 xl:col-span-3 ">
-                        <div class="bg-white dark:bg-gray-800/40 backdrop-blur-2xl  rounded-2xl shadow-lg w-full relative p-4 mb-4">
+                        <div class="flex justify-between bg-white dark:bg-gray-800/40 backdrop-blur-2xl  rounded-2xl shadow-lg w-full relative p-4 mb-4">
                             <span class="font-medium border-b border-dashed border-pink-400 dark:text-slate-200">Call for Papers</span>
+                            <div class="px-2 py-1 text-xs font-medium leading-none text-center items-center justify-center text-white bg-red-600 rounded-full animate-pulse dark:bg-blue-900 dark:text-blue-200">new</div>
                         </div>
 
                         <div class="grid grid-cols-12 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-4 mb-4">
                             <div class="col-span-12 sm:col-span-12  md:col-span-6 lg:col-span-12 xl:col-span-12">
-                                <div class="animate-text-slide bg-white dark:bg-gray-800/40 backdrop-blur-2xl rounded-2xl shadow-lg w-full relative p-4 text-justify">
+                                <marquee direction="up" class="bg-white h-64 dark:bg-gray-800/40 backdrop-blur-2xl rounded-2xl shadow-lg w-full relative p-4 text-justify">
                                     <p>
                                         Scholars and Researchers in the academic community and other institutions are invited to submit their
                                         research articles for publication.
@@ -161,7 +162,7 @@
                                         Scholars and Researchers in the academic community and other institutions are invited to submit their
                                         research articles for publication.
                                     </p>
-                                </div> <!--end card-->
+                                </marquee> <!--end card-->
                             </div><!--end col-->
                         </div><!--end grid-->
 
@@ -220,7 +221,7 @@
                                 <strong class="font-bold text-base text-gray-800 dark:text-white">{{ $article->title }}</strong>
                             </a>
                         </div>
-                        <div class="text-sm text-gray-900">
+                        <div class="text-sm text-gray-900 text-justify">
                             {!! \Illuminate\Support\Str::words($article->abstract, 40, '...') !!} <br>
                             <span class="text-sm text-primary-600">{{ $article->authors }}</span>
                         </div>
