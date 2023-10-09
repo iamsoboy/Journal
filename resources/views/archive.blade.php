@@ -50,7 +50,7 @@
                         <!--Archive Issues -->
                         <div class="block max-w-full p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                             @foreach($journal->articles as $article)
-                            <div class="px-4 py-1 text-sm border border-b-0 rounded-lg dark:bg-gray-800 dark:text-blue-400" role="alert">
+                            <div class="px-4 py-2 text-sm border border-b-2 rounded-lg dark:bg-gray-800 dark:text-blue-400" role="alert">
                                 <a href="{{ config('app.url').'/storage/'.$article->attachment }}" target="_blank" class="font-bold text-red-800">{{ $article->title }}</a><br>
                                 <span class="italic text-blue-700">{{ $article->authors }}</span>
                             </div>
@@ -62,12 +62,12 @@
                     <div class="col-span-12 sm:col-span-12  md:col-span-12 lg:col-span-4 xl:col-span-3 ">
                         <div class="bg-white dark:bg-gray-800/40 backdrop-blur-2xl  rounded-2xl shadow-lg w-full relative p-4 mb-4">
                             <div class="flex flex-col rounded-md shadow-sm" role="group">
-                                <button type="button" class="no-underline uppercase px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 over:text-blue-800 focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
+                                <a href="{{ route('current-issue', $journal->id) }}" type="button" class="no-underline uppercase px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 over:text-blue-800 focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
                                     Current Issues
-                                </button>
-                                <button type="button" class="no-underline uppercase px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 hover:text-blue-800 focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
+                                </a>
+                                <a href="{{ route('archive', $journal->id) }}" type="button" class="no-underline uppercase px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 hover:text-blue-800 focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
                                     Archives
-                                </button>
+                                </a>
                                 <button type="button" class="px-4 py-2 text-sm font-medium uppercase text-gray-900 bg-transparent border border-gray-900 hover:text-blue-800 focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
                                     Manuscript Guidelines
                                 </button>
