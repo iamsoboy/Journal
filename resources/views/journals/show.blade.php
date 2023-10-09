@@ -6,17 +6,23 @@
                 <div class="p-4 transition duration-500 ease-in-out transform bg-white border rounded-lg">
                     <div class="flex py-2 mb-4">
                         <img src="{{ config('app.url')."/storage/".$journal->image }}">
-{{--                        <div class="ml-4">--}}
-{{--                            <p class="text-sm font-medium text-gray-900">Wicked Labs</p>--}}
-{{--                            <p class="text-sm text-gray-500">Agency</p>--}}
-{{--                        </div>--}}
                     </div>
-                    <div>
-                        <a href="#" class="flex items-center px-6 py-2 mt-auto text-lg text-white transition duration-500 ease-in-out transform bg-blue-600 border border-current rounded hover:bg-blue-700 focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">Follow us on Twitter</a>
+
+                    <div class="flex flex-col rounded-md shadow-sm" role="group">
+                        <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-l-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
+                            Current Issues
+                        </button>
+                        <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
+                            Archives
+                        </button>
+                        <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-r-md hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
+                            Manuscript Guidelines
+                        </button>
                     </div>
+
                 </div>
             </div>
-            <div class="w-full px-4 mt-12 prose lg:px-0 lg:w-3/4">
+            <div class="w-full px-4 mt-12 prose lg:px-0 lg:w-3/4 text-justify">
                 <div class="mb-5 border-b border-gray-200">
                     <div class="flex flex-wrap items-baseline -mt-2">
                         <p class="mt-1 font-bold text-2xl">{{ $journal->title }}</p>
@@ -27,7 +33,7 @@
                         <p>DOI: {{ $journal->doi }}</p>
                     </div>
                 </div>
-                <p>{!! $journal->body !!}</p>
+                {!! $journal->body !!}
             </div>
         </div>
         <div class="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
@@ -41,7 +47,7 @@
                             <div class="py-4 flex flex-wrap md:flex-nowrap">
                             <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
                                 <span class="font-semibold title-font text-gray-700">{{ $journal->category->name ?? 'Uncategorized' }}</span>
-                                <span class="mt-1 text-gray-500 text-sm">12 Jun 2019</span>
+                                <span class="mt-1 text-gray-500 text-sm">{{ $article->created_at }}</span>
                             </div>
                             <div class="md:flex-grow">
                                 <h2 class="text-lg font-medium text-gray-900 title-font mb-2">{{ $article->title }}</h2>

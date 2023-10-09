@@ -15,7 +15,7 @@
                                 :class="{'text-indigo-500 border-indigo-500 hover:border-indigo-800': tab === 'description' }"
                                 @click.prevent="tab = 'description'"
                         >
-                            Description
+                            Abstract
                         </button>
                         <button class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1"
                                 :class="{'text-indigo-500 border-indigo-500 hover:border-indigo-800': tab === 'author' }"
@@ -30,8 +30,8 @@
                             References
                         </button>
                     </div>
-                    <div x-show="tab === 'description'" class="py-8">
-                        <p class="leading-relaxed">{!! $article->abstract !!}</p>
+                    <div x-show="tab === 'description'" class="py-8 text-justify">
+                        {!! $article->abstract !!}
                     </div>
                     <div x-show="tab === 'author'" class="py-8">
                         <p class="leading-relaxed">{{ $article->authors }}</p>
@@ -40,18 +40,6 @@
                         <p class="leading-relaxed">{{ $article->references }}</p>
                     </div>
 
-                    <div class="flex border-t border-gray-200 py-2">
-                        <span class="text-gray-600">Keyword(s)</span>
-                        <span class="ml-auto text-gray-900">{{ $article->keywords }}</span>
-                    </div>
-                    <div class="flex border-t border-gray-200 py-2">
-                        <span class="text-gray-600">About the Journal</span>
-                        <span class="ml-auto text-gray-900">{{ $article->journal->volume }}, {{ $article->journal->issue }}</span>
-                    </div>
-                    <div class="flex border-t border-b mb-6 border-gray-200 py-2">
-                        <span class="text-gray-600">Quantity</span>
-                        <span class="ml-auto text-gray-900">4</span>
-                    </div>
                     <div class="flex">
                         @if($article->cost)
                         <span class="title-font font-medium text-2xl text-gray-900">$ {{ number_format($article->cost) }}</span>

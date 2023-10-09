@@ -77,7 +77,7 @@
                                             <span class="text-[12px] bg-pink-500/10 text-pink-500 dark:text-pink-600 rounded font-medium py-1 px-2 inline-block mb-3">{{ $journal->category->name ?? 'Uncategorized' }}</span>
                                             <span class="text-slate-700 dark:text-slate-300 font-medium text-xs ms-2">{{ $journal->created_at }}</span>
                                         </div>
-                                        <a href="#" class="text-[20px] md:text-3xl lg:text-3xl xl:text-[32px] leading-[30px] mb-5 md:mb-0 font-spectral font-semibold  text-gray-800 dark:text-slate-200 block">
+                                        <a href="{{ route('journals.show', $journal->id) }}" class="text-[20px] md:text-3xl lg:text-3xl xl:text-[32px] leading-[30px] mb-5 md:mb-0 font-spectral font-semibold  text-gray-800 dark:text-slate-200 block">
                                             {{ $journal->title }}
                                         </a>
                                         <span>
@@ -142,7 +142,7 @@
 
                         <div class="grid grid-cols-12 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-4 mb-4">
                             <div class="col-span-12 sm:col-span-12  md:col-span-6 lg:col-span-12 xl:col-span-12">
-                                <div class="animate-text-slide bg-white dark:bg-gray-800/40 backdrop-blur-2xl rounded-2xl shadow-lg w-full relative p-4">
+                                <div class="animate-text-slide bg-white dark:bg-gray-800/40 backdrop-blur-2xl rounded-2xl shadow-lg w-full relative p-4 text-justify">
                                     <p>
                                         Scholars and Researchers in the academic community and other institutions are invited to submit their
                                         research articles for publication.

@@ -1,8 +1,10 @@
-<nav class="w-full bg-gray-100 border-gray-200 dark:bg-gray-900">
+<nav class="w-full bg-cover bg-no-repeat bg-gradient-to-r from-violet-500 to-orange-500 border-gray-200 dark:bg-gray-900"
+
+>
     <div class="flex flex-col flex-wrap items-center justify-between mx-auto">
         <a href="{{ route('welcome') }}" class="flex flex-col items-center justify-center lg:py-4 xs:py-1">
             <img src="{{ config('app.url')."/image/logo.png" }}" class="mr-3" alt="{{ config('app.name', 'Laravel') }} Logo" />
-            <span class="uppercase text-lg xs:hidden font-semibold uppercase dark:text-white">
+            <span class="no-underline uppercase text-lg xs:hidden font-semibold text-white dark:text-white">
                 International Institute for Global Development
             </span>
         </a>
@@ -18,13 +20,13 @@
         <div id="mega-menu-icons" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
             <ul class="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
                 <li>
-                    <a href="{{ route('welcome') }}" class="block py-2 pl-3 pr-4 {{ Request::is('/') ? 'text-blue-600' : 'text-gray-900' }}  border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Home</a>
+                    <a href="{{ route('welcome') }}" class="block no-underline py-2 pl-3 pr-4 {{ Request::is('/') ? 'text-blue-600' : 'text-gray-900' }} hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent">Home</a>
                 </li>
                 <li>
-                    <a href="{{ route('journals') }}" class="block py-2 pl-3 pr-4 {{ Request::is('journals*') ? 'text-blue-600' : 'text-gray-900' }}  border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Academic Journals</a>
+                    <a href="{{ route('journals') }}" class="block no-underline py-2 pl-3 pr-4 {{ Request::is('journals*') ? 'text-blue-600' : 'text-gray-900' }} hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent">Academic Journals</a>
                 </li>
                 <li>
-                    <button id="mega-menu-icons-dropdown-button" data-dropdown-toggle="mega-menu-icons-dropdown" class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                    <button id="mega-menu-icons-dropdown-button" data-dropdown-toggle="mega-menu-icons-dropdown" class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent">
                         Submit Manuscript
                         <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
@@ -34,7 +36,7 @@
                         <div class="p-2 text-gray-900 md:pb-4 dark:text-white">
                             <ul class="space-y-4" aria-labelledby="mega-menu-icons-dropdown-button">
                                 <li>
-                                    <a href="{{ route('manuscript') }}" class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                    <a href="{{ route('manuscript') }}" class="flex no-underline items-center text-gray-900 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
                                         <span class="sr-only">About us</span>
                                         <svg class="w-3 h-3 mr-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                             <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
@@ -47,7 +49,7 @@
                         <div class="p-2 text-gray-900 md:pb-4 dark:text-white">
                             <ul class="space-y-4">
                                 <li>
-                                    <a href="{{ route('payment') }}" class="flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
+                                    <a href="{{ route('payment') }}" class="flex no-underline items-center text-gray-900 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group">
                                         <span class="sr-only">Online Payment Module</span>
                                         <svg class="w-3 h-3 mr-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                             <path d="M19 4h-1a1 1 0 1 0 0 2v11a1 1 0 0 1-2 0V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a1 1 0 0 0-1-1ZM3 4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4Zm9 13H4a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-3H4a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-3H4a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-3h-2a1 1 0 0 1 0-2h2a1 1 0 1 1 0 2Zm0-3h-2a1 1 0 0 1 0-2h2a1 1 0 1 1 0 2Z"/>
@@ -61,16 +63,16 @@
                     </div>
                 </li>
                 <li>
-                    <a href="{{ route('about-us') }}" class="block py-2 pl-3 pr-4 {{ Request::is('about-us') ? 'text-blue-600' : 'text-gray-900' }}  border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">About Us</a>
+                    <a href="{{ route('about-us') }}" class="block no-underline py-2 pl-3 pr-4 {{ Request::is('about-us') ? 'text-blue-600' : 'text-gray-900' }} hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">About Us</a>
                 </li>
                 <li>
-                    <a href="{{ route('members') }}" class="block py-2 pl-3 pr-4 {{ Request::is('board-members') ? 'text-blue-600' : 'text-gray-900' }}  border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Editorial Members</a>
+                    <a href="{{ route('members') }}" class="block no-underline py-2 pl-3 pr-4 {{ Request::is('board-members') ? 'text-blue-600' : 'text-gray-900' }} hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Editorial Members</a>
                 </li>
                 <li>
-                    <a href="{{ route('contact-us') }}" class="block py-2 pl-3 pr-4 {{ Request::is('contact-us') ? 'text-blue-600' : 'text-gray-900' }}  border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                    <a href="{{ route('contact-us') }}" class="block no-underline py-2 pl-3 pr-4 {{ Request::is('contact-us') ? 'text-blue-600' : 'text-gray-900' }} hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
                 </li>
                 <li>
-                    <a href="{{ route('faq') }}" class="block py-2 pl-3 pr-4 {{ Request::is('faq') ? 'text-blue-600' : 'text-gray-900' }}  border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">FAQs</a>
+                    <a href="{{ route('faq') }}" class="block no-underline py-2 pl-3 pr-4 {{ Request::is('faq') ? 'text-blue-600' : 'text-gray-900' }} hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">FAQs</a>
                 </li>
             </ul>
         </div>
