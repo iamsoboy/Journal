@@ -229,13 +229,13 @@
                 @forelse($articles as $article)
                     <div class="block rounded-lg p-2 mb-2 bg-gray-100 dark:bg-gray-800" role="tabpanel" x-show="tab === '{{$article->journal_id}}'">
                         <div class="flex justify-between">
-                            <a href="{{ config('app.url').'/storage/'.$article->attachment }}" target="_blank">
-                                <strong class="font-bold text-base text-gray-800 dark:text-white">{{ $article->title }}</strong>
+                            <a href="{{ config('app.url').'/storage/'.$article->attachment }}" target="_blank" class="no-underline">
+                                <strong class="font-bold text-base text-red-800 dark:text-white">{{ $article->title }}</strong>
                             </a>
                         </div>
                         <div class="text-sm text-gray-900 text-justify">
                             {!! \Illuminate\Support\Str::words($article->abstract, 40, '...') !!} <br>
-                            <a href="{{ config('app.url').'/storage/'.$article->attachment }}" class="text-sm text-primary-600">{{ $article->authors }}</a>
+                            <a target="_blank" href="{{ config('app.url').'/storage/'.$article->attachment }}" class="text-sm text-primary-600 no-underline">{{ $article->authors }}</a>
                         </div>
                     </div>
                 @empty
