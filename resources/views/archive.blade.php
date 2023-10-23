@@ -70,19 +70,11 @@
                                 <a href="{{ route('archive', $journal->id) }}" type="button" class="no-underline uppercase px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 hover:text-blue-800 focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
                                     Archives
                                 </a>
-                                <button type="button" class="px-4 py-2 text-sm font-medium uppercase text-gray-900 bg-transparent border border-gray-900 hover:text-blue-800 focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
+                                <a href="{{ route('archive', $journal->id) }}" type="button" class="px-4 py-2 text-sm font-medium uppercase text-gray-900 bg-transparent border border-gray-900 hover:text-blue-800 focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
                                     Manuscript Guidelines
-                                </button>
+                                </a>
                             </div>
                         </div>
-                        <div class="grid grid-cols-12 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-4">
-                            <div class="col-span-12 sm:col-span-12  md:col-span-6 lg:col-span-12 xl:col-span-12 ">
-                                <div class="bg-white dark:bg-gray-800/40 backdrop-blur-2xl  rounded-2xl shadow-lg w-full relative p-4">
-                                    <p>All Journals</p>
-                                </div> <!--end card-->
-                            </div><!--end col-->
-                        </div><!--end grid-->
-
                     </div><!--end col-->
 
                 </div><!--end inner-grid-->

@@ -5,6 +5,7 @@ use App\Http\Controllers\Guest\ArchiveController;
 use App\Http\Controllers\Guest\ArticleController;
 use App\Http\Controllers\Guest\ContactUsController;
 use App\Http\Controllers\Guest\FaqController;
+use App\Http\Controllers\Guest\GuideController;
 use App\Http\Controllers\Guest\HomeController;
 use App\Http\Controllers\Guest\JournalController;
 use App\Http\Controllers\Guest\ManuscriptController;
@@ -42,6 +43,7 @@ Route::get('/article/{article}', [ArticleController::class, 'show'])->name('arti
 Route::get('/manuscript-payment', [PaymentController::class, 'index'])->name('payment');
 Route::get('/archive/{journal}', [ArchiveController::class, 'archive'])->name('archive');
 Route::get('/current-issue/{journal}', [ArchiveController::class, 'current'])->name('current-issue');
+Route::get('/guidelines', [GuideController::class, 'index'])->name('guideline');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
