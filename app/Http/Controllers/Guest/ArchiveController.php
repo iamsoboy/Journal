@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Models\Article;
 use App\Models\Journal;
 use Illuminate\Http\Request;
 
@@ -18,13 +19,19 @@ class ArchiveController extends Controller
 
     public function archive(Journal $journal)
     {
-        $journals = Journal::whereTitle($journal->title)->with('articles')->orderByDesc('id')->get()->groupBy('issue');
+        //$journals = Journal::whereTitle($journal->title)->with('articles')->orderByDesc('id')->get()->groupBy('issue');
 
-        $newJournals = $journals->map(function ($items, $key) {
-            foreach ($items as $item) {
-                return $item->articles;
-            }
+        $newJournals = Article::where('journal_id', $journal->id)->get()->groupBy(function ($item) {
+            return $item->journal->issue;
         });
+
+        //dd($articles);
+
+//        $newJournals = $journals->map(function ($items, $key) {
+//            foreach ($items as $item) {
+//                return $item->articles;
+//            }
+//        });
 
         //dd($newJournals);
 

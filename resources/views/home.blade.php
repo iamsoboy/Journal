@@ -68,9 +68,9 @@
                         @forelse($journals as $key => $journal)
                             <div class="bg-white dark:bg-gray-800/40 backdrop-blur-2xl  rounded-2xl shadow-lg w-full relative p-4 mb-4">
                             <div class="grid grid-cols-12 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-4">
-                                <div class="col-span-12 sm:col-span-6  md:col-span-4 lg:col-span-4 xl:col-span-4 ">
+                                <a href="{{ route('journals.show', $journal->id) }}" class="col-span-12 sm:col-span-6  md:col-span-4 lg:col-span-4 xl:col-span-4 ">
                                     <img src="{{ config('app.url')."/storage/".$journal->image }}" alt="{{ $journal->title }}" class="max-w-full h-auto rounded-xl">
-                                </div><!--end col-->
+                                </a><!--end col-->
                                 <div class="col-span-12 sm:col-span-6  md:col-span-8 lg:col-span-8 xl:col-span-8 ">
                                     <div class=" h-full flex flex-col p-3">
                                         <div class="w-full block">

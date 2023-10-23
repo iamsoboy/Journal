@@ -13,9 +13,9 @@
                         <div x-data="{ open: false }" class="pt-6">
                             <dt class="text-lg">
                                 <button type="button" x-description="Expand/collapse question button" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-1" @click="open = !open" aria-expanded="false" x-bind:aria-expanded="open.toString()">
-                  <span class="font-medium text-gray-900">
-                    {{ $faq->title }}
-                  </span>
+                                  <span class="font-medium text-gray-900">
+                                    {{ $faq->title }}
+                                  </span>
                                     <span class="ml-6 h-7 flex items-center">
                     <svg class="rotate-0 h-6 w-6 transform" x-description="Expand/collapse icon, toggle classes based on question open state.
 
