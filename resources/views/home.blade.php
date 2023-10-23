@@ -167,13 +167,25 @@
                         </div><!--end grid-->
 
                         <div class="bg-white dark:bg-gray-800/40 backdrop-blur-2xl  rounded-2xl shadow-lg w-full relative p-4 mb-4">
-                            <span class="font-medium border-b border-dashed border-pink-400 dark:text-slate-200">Partners</span>
+                            <span class="font-medium border-b border-dashed border-pink-400 dark:text-slate-200">Indexation</span>
                         </div>
                         <div class="grid grid-cols-12 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-4 mb-4">
                             <div class="col-span-12 sm:col-span-12  md:col-span-6 lg:col-span-12 xl:col-span-12 ">
                                 <div class="bg-white dark:bg-gray-800/40 backdrop-blur-2xl  rounded-2xl shadow-lg w-full relative">
                                     <!-- IMAGE BRAND -->
                                     <img alt="logo" class="flex-shrink-0 object-cover object-center mx-auto rounded" src="{{ config('app.url')."/image/placeholder.png" }}">
+                                </div> <!--end card-->
+                            </div><!--end col-->
+                        </div><!--end grid-->
+
+                        <div class="bg-white dark:bg-gray-800/40 backdrop-blur-2xl  rounded-2xl shadow-lg w-full relative p-4 mb-4">
+                            <span class="font-medium border-b border-dashed border-pink-400 dark:text-slate-200">Partners</span>
+                        </div>
+                        <div class="grid grid-cols-12 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-4 mb-4">
+                            <div class="col-span-12 sm:col-span-12  md:col-span-6 lg:col-span-12 xl:col-span-12 ">
+                                <div class="bg-white dark:bg-gray-800/40 backdrop-blur-2xl  rounded-2xl shadow-lg w-full relative">
+                                    <!-- IMAGE BRAND -->
+                                    <img alt="logo" class="flex-shrink-0 object-cover object-center mx-auto rounded" src="{{ config('app.url')."/image/partners.png" }}">
                                 </div> <!--end card-->
                             </div><!--end col-->
                         </div><!--end grid-->
@@ -223,7 +235,7 @@
                         </div>
                         <div class="text-sm text-gray-900 text-justify">
                             {!! \Illuminate\Support\Str::words($article->abstract, 40, '...') !!} <br>
-                            <span class="text-sm text-primary-600">{{ $article->authors }}</span>
+                            <a href="{{ config('app.url').'/storage/'.$article->attachment }}" class="text-sm text-primary-600">{{ $article->authors }}</a>
                         </div>
                     </div>
                 @empty
