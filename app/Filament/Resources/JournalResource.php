@@ -63,7 +63,7 @@ class JournalResource extends Resource
                             ->maxLength(191),
                         TextInput::make('cost')
                             ->maxLength(191),
-                        FileUpload::make('template')
+                        FileUpload::make('template')->acceptedFileTypes(['application/pdf'])
                     ]),
                 Grid::make(4)
                     ->schema([
