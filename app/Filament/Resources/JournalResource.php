@@ -55,7 +55,7 @@ class JournalResource extends Resource
                     ->schema([
                         RichEditor::make('body'),
                     ]),
-                Grid::make(3)
+                Grid::make(2)
                     ->schema([
                         TextInput::make('issue')
                             ->maxLength(191),
@@ -63,6 +63,7 @@ class JournalResource extends Resource
                             ->maxLength(191),
                         TextInput::make('cost')
                             ->maxLength(191),
+                        FileUpload::make('template')
                     ]),
                 Grid::make(4)
                     ->schema([
