@@ -191,7 +191,6 @@
                         </div><!--end grid-->
 
                     </div><!--end col-->
-
                 </div><!--end inner-grid-->
             </div><!--end container-->
         </div><!--end section-->
