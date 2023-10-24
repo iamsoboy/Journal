@@ -27,7 +27,7 @@ class ContactUsController extends Controller
         ]);
 
         //Send Email
-        Mail::to('iamsoboy@gmail.com')->send(new ContactForm($data));
+        Mail::to('info@iigdpublishers.com')->send(new ContactForm($data));
 
         return redirect()->route('contact-us')->with('success_message', 'Thanks for your message, We\'ll be in touch!');
     }

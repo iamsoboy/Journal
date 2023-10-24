@@ -5,26 +5,22 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ContactForm extends Mailable
+class SubmitManuscript extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $data;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct()
     {
-        $this->data = $data;
-        //dd($this->data );
+        //
     }
 
     /**
@@ -35,11 +31,7 @@ class ContactForm extends Mailable
     public function envelope()
     {
         return new Envelope(
-            from: new Address($data['email'], $data['name']),
-            replyTo: [
-                        new Address('info@iigdpublishers.com', 'IIGD Publishers'),
-                    ],
-            subject: 'Contact Form',
+            subject: 'Submit Manuscript',
         );
     }
 
@@ -51,7 +43,7 @@ class ContactForm extends Mailable
     public function content()
     {
         return new Content(
-            view: 'emails.contact',
+            view: 'view.name',
         );
     }
 
