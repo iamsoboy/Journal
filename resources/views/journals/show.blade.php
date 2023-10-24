@@ -18,6 +18,9 @@
                         <a href="{{ route('guideline') }}" type="button" class="no-underline px-4 py-2 text-sm font-medium uppercase text-gray-900 bg-transparent border border-gray-900 rounded-r-md hover:text-blue-800 focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
                             Manuscript Guidelines
                         </a>
+                        <a href="{{ route('journals.editor', $journal->id) }}" type="button" class="no-underline px-4 py-2 text-sm font-medium uppercase text-gray-900 bg-transparent border border-gray-900 rounded-r-md hover:text-blue-800 focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
+                            Editorial Board
+                        </a>
                     </div>
 
                 </div>

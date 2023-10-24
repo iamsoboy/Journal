@@ -39,6 +39,7 @@ Route::get('/submit-manuscript', [ManuscriptController::class, 'index'])->name('
 Route::post('/submit-manuscript', [ManuscriptController::class, 'store'])->name('manuscript.store');
 Route::get('/journals', [JournalController::class, 'index'])->name('journals');
 Route::get('/journals/{journal}', [JournalController::class, 'show'])->name('journals.show');
+Route::get('/journals-editorial-board/{journal}', [JournalController::class, 'editors'])->name('journals.editor');
 Route::get('/article/{article}', [ArticleController::class, 'show'])->name('article.show');
 Route::get('/manuscript-payment', [PaymentController::class, 'index'])->name('payment');
 Route::get('/archive/{journal}', [ArchiveController::class, 'archive'])->name('archive');

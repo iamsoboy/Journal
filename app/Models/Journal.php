@@ -37,4 +37,9 @@ class Journal extends Model
     {
         return $this->hasMany(Article::class)->orderByDesc('id');
     }
+
+    public function editorialBoards()
+    {
+        return $this->hasMany(EditorialBoard::class)->orderByDesc('id');
+    }
 }
