@@ -35,7 +35,7 @@ class ContactForm extends Mailable
     public function envelope()
     {
         return new Envelope(
-            from: new Address($data['email'], $data['name']),
+            from: new Address('admin@iigdpublishers.com', 'Sample Name'),
             replyTo: [
                         new Address('info@iigdpublishers.com', 'IIGD Publishers'),
                     ],

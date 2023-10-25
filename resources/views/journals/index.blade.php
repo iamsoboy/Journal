@@ -12,7 +12,7 @@
                     </a>
                     <div class="mt-4">
                         <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1 uppercase">{{ $journal->category->name ?? 'Uncategorized' }}</h3>
-                        <h2 class="text-gray-900 title-font text-lg xs:text-xs font-medium">{{ $journal->title }}</h2>
+                        <a href="{{ route('journals.show', $journal->id) }}" class="text-gray-900 title-font text-lg xs:text-xs font-medium">{{ $journal->title }}</a>
                         @if($journal->cost)
                             <p class="mt-1">{{ $journal->cost }}</p>
                         @endif

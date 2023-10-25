@@ -6,9 +6,8 @@
         <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">&copy; <script>document.write(new Date().getFullYear());</script> {{ config('app.name') }} —
             <a href="{{ route('welcome') }}" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@iigd</a>
         </p>
-        <div class="flex items-center title-font font-medium items-center md:justify-start justify-center text-gray-900">
+        <div class="flex w-auto px-8 items-center title-font font-medium items-center md:justify-start justify-center text-gray-900">
             <p>This work is licensed under a Creative Commons Attribution 4.0 International License.</p>
-            <p>Articles published by the IIGD Publishers have been peer-reviewed before publication.</p>
         </div>
         <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
           <a class="text-gray-500">

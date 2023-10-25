@@ -65,7 +65,7 @@ class ArticleResource extends Resource
                             ->label('Select Journal')
                             ->required(),
                         Textarea::make('keywords'),
-                        Textarea::make('authors')
+                        RichEditor::make('authors')
                             ->required(),
                     ]),
                 Grid::make(3)
