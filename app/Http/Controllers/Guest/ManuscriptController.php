@@ -14,13 +14,14 @@ class ManuscriptController extends Controller
         $pageTitle = "Online Manuscript Submission";
         $pageDescription = "Online Article Submission";
         $journals = Journal::whereStatus(true)->get()->pluck('title');
-        return view('manuscript', compact('pageTitle', 'pageDescription', ));
+        return view('manuscript', compact('pageTitle', 'pageDescription', 'journals' ));
     }
 
     public function store(Request $request)
     {
+        //dd($request->all());
         $this->validate($request, [
-            'firstname' => ['required', 'string', 'max:120'],
+            'first_name' => ['required', 'string', 'max:120'],
             'surname' => ['required', 'string', 'max:120'],
             'email' => ['required', 'email'],
             'phone' => ['required', 'string'],
@@ -35,8 +36,16 @@ class ManuscriptController extends Controller
             'payment_reference' => ['nullable', 'string'],
             'message' => ['nullable', 'string', 'max:191'],
         ]);
+
+        if (request()->has('document')){
+            $image = request()->file('document');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/storage');
+            $image->move($destinationPath, $name);
+        }
+
         Manuscript::create([
-            'firstname' => $request->firstname,
+            'first_name' => $request->first_name,
             'surname' => $request->surname,
             'email' => $request->email,
             'phone' => $request->phone,
@@ -48,15 +57,11 @@ class ManuscriptController extends Controller
             'file_name' => $request->article_name,
             'journal' => $request->journal_type,
             'reference' => $request->payment_reference,
-            'attachment' => $request->document,
+            'attachment' => $name ?? '',
             'comment' => $request->message,
+            'status' => 1,
         ]);
-        if (request()->has('document')){
-            $image = request()->file('document');
-            $name = time().'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('/storage');
-            $image->move($destinationPath, $name);
-        }
+
         return redirect()->route('manuscript')->with('success_message', 'Thanks for your article submission, We\'ll be in touch!');
     }
 }

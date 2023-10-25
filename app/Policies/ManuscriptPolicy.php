@@ -18,7 +18,7 @@ class ManuscriptPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -30,7 +30,7 @@ class ManuscriptPolicy
      */
     public function view(User $user, Manuscript $manuscript)
     {
-        //
+        return true;
     }
 
     /**
@@ -65,7 +65,7 @@ class ManuscriptPolicy
      */
     public function delete(User $user, Manuscript $manuscript)
     {
-        //
+        return true;
     }
 
     /**
@@ -77,7 +77,7 @@ class ManuscriptPolicy
      */
     public function restore(User $user, Manuscript $manuscript)
     {
-        //
+        return true;
     }
 
     /**
@@ -89,6 +89,6 @@ class ManuscriptPolicy
      */
     public function forceDelete(User $user, Manuscript $manuscript)
     {
-        //
+        return true;
     }
 }
